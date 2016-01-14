@@ -1,0 +1,72 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{B611DCFC-30AD-4ED7-8E61-DBE461C27209}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="SaveStateDemo.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="SaveStateHelperDemo.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="SaveStateCppDemo.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="SaveStateHelperDemoCpp.cbproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="SaveStateDemo">
+        <MSBuild Projects="SaveStateDemo.dproj"/>
+    </Target>
+    <Target Name="SaveStateDemo:Clean">
+        <MSBuild Projects="SaveStateDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SaveStateDemo:Make">
+        <MSBuild Projects="SaveStateDemo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="SaveStateHelperDemo">
+        <MSBuild Projects="SaveStateHelperDemo.dproj"/>
+    </Target>
+    <Target Name="SaveStateHelperDemo:Clean">
+        <MSBuild Projects="SaveStateHelperDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SaveStateHelperDemo:Make">
+        <MSBuild Projects="SaveStateHelperDemo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="SaveStateCppDemo">
+        <MSBuild Projects="SaveStateCppDemo.cbproj"/>
+    </Target>
+    <Target Name="SaveStateCppDemo:Clean">
+        <MSBuild Projects="SaveStateCppDemo.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SaveStateCppDemo:Make">
+        <MSBuild Projects="SaveStateCppDemo.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="SaveStateHelperDemoCpp">
+        <MSBuild Projects="SaveStateHelperDemoCpp.cbproj"/>
+    </Target>
+    <Target Name="SaveStateHelperDemoCpp:Clean">
+        <MSBuild Projects="SaveStateHelperDemoCpp.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SaveStateHelperDemoCpp:Make">
+        <MSBuild Projects="SaveStateHelperDemoCpp.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="SaveStateDemo;SaveStateHelperDemo;SaveStateCppDemo;SaveStateHelperDemoCpp"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="SaveStateDemo:Clean;SaveStateHelperDemo:Clean;SaveStateCppDemo:Clean;SaveStateHelperDemoCpp:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="SaveStateDemo:Make;SaveStateHelperDemo:Make;SaveStateCppDemo:Make;SaveStateHelperDemoCpp:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
